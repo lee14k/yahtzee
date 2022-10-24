@@ -1,13 +1,17 @@
 let displayDice = document.getElementById('dicedisplay')
-let savedDice
+let savedDiceDisplay = document.getElementById('savedice')
+let savedDice = []
 let continuedDice
 let randomRoll
+
 
 let one = document.getElementById('one')
 let two = document.getElementById('two')
 let three = document.getElementById('three')
 let four = document.getElementById('four')
 let five = document.getElementById('five')
+
+let positions = [one, two, three, four, five]
 
 
 let dice=[]
@@ -31,6 +35,16 @@ function getRoll () {
 
 }
 
-function saveDice () {
+console.log(positions)
 
-}
+positions.forEach(item => {
+    item.addEventListener('click', e =>{
+            savedDice.push(item.innerText)
+            console.log(item)
+            savedDiceDisplay.innerText=savedDice
+        //    console.log('moved')
+           // console.log(dice)
+           console.log(savedDice)
+    })
+
+    })
