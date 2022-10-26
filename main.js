@@ -40,11 +40,15 @@ console.log(positions)
 positions.forEach(item => {
     item.addEventListener('click', e =>{
             savedDice.push(item.innerText)
-            console.log(item)
+            
             savedDiceDisplay.innerText=savedDice
+
         //    console.log('moved')
            // console.log(dice)
            console.log(savedDice)
     })
 
     })
+
+    //how do i remove an element from the current roll and move it into the saved dice array
+    //how do i add it back to the current roll array 
