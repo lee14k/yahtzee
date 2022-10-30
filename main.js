@@ -11,6 +11,12 @@ let three = document.getElementById('three')
 let four = document.getElementById('four')
 let five = document.getElementById('five')
 
+let sone = document.getElementById('sone')
+let stwo = document.getElementById('stwo')
+let sthree = document.getElementById('sthree')
+let sfour = document.getElementById('sfour')
+let sfive = document.getElementById('sfive')
+
 let positions = [one, two, three, four, five]
 
 
@@ -37,9 +43,8 @@ function getRoll () {
     five.innerText=dice[4]
 rolls++
 }else{
-    dice=[
-        
-    ]
+    console.log(dice.length)
+   
 
 }
 //i only want to select the dice that the user has not moved into the saved dice array and create random numbers for those
@@ -52,15 +57,33 @@ positions.forEach(item => {
             savedDice.push(item.innerText)
             dice.shift(item)
             item.innerText=""
-            savedDiceDisplay.innerText=savedDice
-            console.log(dice)
-
+           // savedDiceDisplay.innerText=savedDice
+           div = document.createElement('div')
+           div.setAttribute("id",'savey')
+            savedDice.forEach( function  (index) {
+               // div = div.cloneNode()
+                div.textContent=index
+                savedDiceDisplay.appendChild(div)
+             let turtle = document.getElementById('savey')  
+             turtle.addEventListener('click', addBack)
+function addBack () {
+    dice.push(50)
+    console.log(dice)
+}
+            })
+            //sone.innerText=savedDice[0]
+            //stwo.innerText=savedDice[1]
+            //sthree.innerText=savedDice[2]
+            //sfour.innerText=savedDice[3]
+         
         //    console.log('moved')
            // console.log(dice)
            //console.log(savedDice)
     })
 
     })
+
+
 
 //use current dice array length and only roll those dice 
 
