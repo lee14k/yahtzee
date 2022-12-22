@@ -37,7 +37,7 @@ let positions = [one, two, three, four, five]
 
 
 function getRoll () {
-    
+    generateDice()
 console.log('fuck')
 rolls++
 
@@ -97,6 +97,7 @@ positions.forEach(item => {
            cola.forEach(el => {
             console.log(el)
             el.addEventListener('click', items =>{
+                savedDiceDisplay.removeChild(el)
                 //el.classList.toggle('disappear')
               //  console.log(savedDice)
               console.log(items)
@@ -106,7 +107,7 @@ positions.forEach(item => {
                 divAgain.setAttribute("class", 'addedagain')
                 divAgain.textContent=el.innerText
                 displayDice.appendChild(divAgain)
-                savedDiceDisplay.removeChild(el)
+                
                 //console.log(positions)
         })
 
