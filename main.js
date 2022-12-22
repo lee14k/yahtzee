@@ -10,6 +10,7 @@ let savedDiceAgainValues =[]
 let dude=[]
 let turtle
 let cola
+let roundTwo = []
 
 
 let one = document.getElementById('one')
@@ -42,13 +43,28 @@ function getRoll () {
     three.innerText=dice[2]
     four.innerText=dice[3]
     five.innerText=dice[4]
+    console.log(displayDice)
+let firstChild = displayDice.firstChild
+let firstValue = firstChild.innerText
+
+    console.log(firstChild)  
+    console.log(firstValue)
 rolls++
 }else if(rolls===2){
+  if (displayDice.length > 5) {
+    console.log('yep')
+   console.log(divAgain)
+displayDice.removeChild(divAgain)
+
+
+   }
+
 let diceA = (Math.trunc(Math.random()*6)+1)
 let diceB = (Math.trunc(Math.random()*6)+1)
 let diceC = (Math.trunc(Math.random()*6)+1)
 let diceD = (Math.trunc(Math.random()*6)+1)
 let diceE = (Math.trunc(Math.random()*6)+1)
+
 
 dice = [diceA, diceB, diceC, diceD, diceE]
 one.innerText=dice[0]
@@ -57,6 +73,7 @@ three.innerText=dice[2]
 four.innerText=dice[3]
 five.innerText=dice[4]
 rolls++
+
 }
 
 //i only want to select the dice that the user has not moved into the saved dice array and create random numbers for those
@@ -105,9 +122,11 @@ positions.forEach(item => {
                     positions.push(el)
                     console.log(positions)
                     divAgain=document.createElement('div')
+                    divAgain.setAttribute("class", 'addedagain')
                     divAgain.textContent=el.innerText
                     displayDice.appendChild(divAgain)
                     savedDiceDisplay.removeChild(el)
+                    console.log(displayDice)
                     //console.log(positions)
             })
             
@@ -145,4 +164,12 @@ positions.forEach(item => {
             
           //want to wait until saved dice are added back to save all values to array
 
-      
+      function removeDiceClick (gone) {
+        let elements = document.getElementsbyClassName ('addedagain')
+        while (elements.length > 0) {
+          elements[0].parentNode.removeChild(elements[0])
+        }
+      }
+
+
+    
