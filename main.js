@@ -13,22 +13,24 @@ let cola
 let roundTwo = []
 let dice=[]
 let rollButton = document.getElementById('roll').addEventListener('click', getRoll)
+let positions = [one, two, three, four, five]
 
 
 let rolls=0;
 
 function generateDice () {
   return (Math.trunc(Math.random()*6)+1)
+  console.log(positions)
+  positions.forEach(item => {
+     item.innerText = generateDice()
+ 
+ })
 }
 
 
 
-let positions = [one, two, three, four, five]
- console.log(positions)
- positions.forEach(item => {
-    item.innerText = generateDice()
 
-})
+
 
 
 
@@ -38,7 +40,7 @@ let positions = [one, two, three, four, five]
 
 function getRoll () {
     generateDice()
-console.log('fuck')
+console.log(rolls)
 rolls++
 
 
@@ -47,11 +49,7 @@ let firstValue = firstChild.innerText
 
 
 } if(rolls>1 && positions.length > 5){
-    console.log('nope')
-    console.log('yep')
-    console.log(divAgain)
 
-  
 displayDice.removeChild(divAgain)
 let diceA = (Math.trunc(Math.random()*6)+1)
 let diceB = (Math.trunc(Math.random()*6)+1)
@@ -66,7 +64,6 @@ two.innerText=dice[1]
 three.innerText=dice[2]
 four.innerText=dice[3]
 five.innerText=dice[4]
-rolls++
 
    }
 
