@@ -14,58 +14,57 @@ let roundTwo = []
 let dice=[]
 let rollButton = document.getElementById('roll').addEventListener('click', getRoll)
 let positions = [one, two, three, four, five]
-
+let displayDiceLength 
 
 let rolls=0;
 
 function generateDice () {
   return (Math.trunc(Math.random()*6)+1)
-  console.log(positions)
-  positions.forEach(item => {
-     item.innerText = generateDice()
- 
- })
 }
 
 
 
 
-
-
-
-
-
-
-
-
 function getRoll () {
-    generateDice()
+ displayDiceLength = displayDice.children.length
+
+  if(displayDiceLength > 5){
+    console.log('tit')
+    let node = document.getElementsByClassName("addedagain");
+    console.log(node)
+    //toggle the display on nodes above to hidden
+ // node.parentNode.removeChild(node);
+
+    displayDice.removeChild('div')
+    let diceA = (Math.trunc(Math.random()*6)+1)
+    let diceB = (Math.trunc(Math.random()*6)+1)
+    let diceC = (Math.trunc(Math.random()*6)+1)
+    let diceD = (Math.trunc(Math.random()*6)+1)
+    let diceE = (Math.trunc(Math.random()*6)+1)
+    
+    
+    dice = [diceA, diceB, diceC, diceD, diceE]
+    one.innerText=dice[0]
+    two.innerText=dice[1]
+    three.innerText=dice[2]
+    four.innerText=dice[3]
+    five.innerText=dice[4]
+    
+       }
+  positions.forEach(item => {
+    item.innerText = generateDice()
+  })
+  
+        }
+
 console.log(rolls)
 rolls++
 
 
-let firstChild = displayDice.firstChild
-let firstValue = firstChild.innerText
+//let firstChild = displayDice.firstChild
+//let firstValue = firstChild.innerText
 
-
-} if(rolls>1 && positions.length > 5){
-
-displayDice.removeChild(divAgain)
-let diceA = (Math.trunc(Math.random()*6)+1)
-let diceB = (Math.trunc(Math.random()*6)+1)
-let diceC = (Math.trunc(Math.random()*6)+1)
-let diceD = (Math.trunc(Math.random()*6)+1)
-let diceE = (Math.trunc(Math.random()*6)+1)
-
-
-dice = [diceA, diceB, diceC, diceD, diceE]
-one.innerText=dice[0]
-two.innerText=dice[1]
-three.innerText=dice[2]
-four.innerText=dice[3]
-five.innerText=dice[4]
-
-   }
+ 
 
 
 
@@ -94,10 +93,9 @@ positions.forEach(item => {
            cola.forEach(el => {
             console.log(el)
             el.addEventListener('click', items =>{
-                savedDiceDisplay.removeChild(el)
+               savedDiceDisplay.removeChild(el)
                 //el.classList.toggle('disappear')
               //  console.log(savedDice)
-              console.log(items)
                 dice.push(parseInt(el.innerText))
                 positions.push(el)
                 divAgain=document.createElement('div')
