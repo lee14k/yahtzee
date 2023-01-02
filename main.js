@@ -23,7 +23,12 @@ function generateDice () {
 }
 
 
-
+function removeElementsByClass(className){
+  const elements = document.getElementsByClassName('addedagain')
+  while(elements.length > 0){
+      elements[0].parentNode.removeChild(elements[0]);
+  }
+}
 
 function getRoll () {
  displayDiceLength = displayDice.children.length
@@ -31,11 +36,14 @@ function getRoll () {
   if(displayDiceLength > 5){
     console.log('tit')
     let node = document.getElementsByClassName("addedagain");
-    console.log(node)
+    let bat = Array.from(node)
+    console.log(bat)
+  
+    removeElementsByClass(bat)
+  
     //toggle the display on nodes above to hidden
  // node.parentNode.removeChild(node);
 
-    displayDice.removeChild('div')
     let diceA = (Math.trunc(Math.random()*6)+1)
     let diceB = (Math.trunc(Math.random()*6)+1)
     let diceC = (Math.trunc(Math.random()*6)+1)
@@ -59,19 +67,6 @@ function getRoll () {
 
 console.log(rolls)
 rolls++
-
-
-//let firstChild = displayDice.firstChild
-//let firstValue = firstChild.innerText
-
- 
-
-
-
-
-//i only want to select the dice that the user has not moved into the saved dice array and create random numbers for those
-
-
 
 positions.forEach(item => {
     item.addEventListener('click', e =>{
@@ -113,20 +108,9 @@ positions.forEach(item => {
     console.log(cola)
 
             
-           // console.log(el.innerHTML)
 
                 })
 
             })
-        
-     
-
-      function removeDiceClick () {
-        let elements = document.getElementsbyClassName ('addedagain')
-        while (elements.length > 0) {
-          elements[0].parentNode.removeChild(elements[0])
-        }
-      }
-
 
     
